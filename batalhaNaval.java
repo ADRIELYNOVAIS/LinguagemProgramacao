@@ -7,7 +7,7 @@ public class batalhaNaval {
         int line, column, option1 = 0;
        
         char [][] matrix1 =  new char[5][5];
-        char [][] matrix2 =  new char[5][5];
+        //char [][] matrix2 =  new char[5][5];
 
         System.out.println("Welcome to Battleship!!!");
 
@@ -47,7 +47,7 @@ public class batalhaNaval {
     }
 
 
-        for( int i =0; i <5; i++){
+      /*  for( int i =0; i <5; i++){
             for(int j=0; j <5; j++){
                 if( matrix2[i][j] == matrix1[i][j] ){
                     matrix2[i][j] ='X';
@@ -55,13 +55,13 @@ public class batalhaNaval {
                     matrix2[i][j] ='-'; // e o erro no alvo??
                 }
             }
-        }
+        }*/
 
     System.out.println("Matriz Inicial:");
     prnMatrix(matrix1);
 
-    System.out.println("Matriz Dois:");
-    prnMatrix(matrix2);
+    //System.out.println("Matriz Dois:");
+    //prnMatrix(matrix2); //
 
 
     scanner.close();
