@@ -5,33 +5,37 @@ public class batalhaNaval {
 
         Scanner scanner = new Scanner(System.in);
         int line, column, option = 0;
-        char [][] matrix1 =  {{'-','-','-','-','@'}, {'-','@','-','-','-'}, {'-','-','-','@','-'}, {'@','-','-','-','-'}, {'-','-','-','-','@'}}; //primeiro declara a matriz e depois inicializa (ver inicializacao)
-        char [][] matrix2 =  new char[5][5]; //matrix troca, ou seja, @ vira X
-        // matriz comparação de coordenadas
+        //char [][] matrix1 =  {{'-','-','-','-','@'}, {'-','@','-','-','-'}, {'-','-','-','@','-'}, {'@','-','-','-','-'}, {'-','-','-','-','@'}}; //primeiro declara a matriz e depois inicializa (ver inicializacao)
+        char [][] matrix1 =  new char[5][5]; //matrix troca, ou seja, @ vira X
 
         System.out.println("Welcome to Battleship!!!");
 
         while( option != 5 ) {
 
-        System.out.println("escolha uma linha: ");
+        System.out.println("escolha uma linha e coluna: ");
         line = scanner.nextInt();
-
-        System.out.println("escolha uma coluna: ");
         column = scanner.nextInt();
+
+        //System.out.println("escolha uma coluna: ");
         
+        
+        // preencher o tabuleiro de acordo com as coordenadas passadas
         if( line < 5 && column < 5 ) {
 
             if( option == 0 ){
-                matrix2[line][column] = 'X';
+                matrix1[line][column] = '@';
             } else{
 
                 for( int i = 0; i <5; i++){
                     for( int j = 0; j<5; j++){
 
-                        if( matrix2[i][j] == 'X' ){
-                            System.out.println("You already have a ship there. Choose different coordinates"); // como imprimir apenas uma vez
+                        if( matrix1[i][j] != '@' ){
+                           // System.out.println("You already have a ship there. Choose different coordinates"); // como imprimir apenas uma vez
+                          // como tratar a questao de nao pedir de novo coordenadas diferentes
+                          matrix1[i][j] = '-';
+                        
                         }else{
-                            matrix2[i][j] = 'X';
+                            matrix1[line][column] = '@';
                         }
                     }}
 
