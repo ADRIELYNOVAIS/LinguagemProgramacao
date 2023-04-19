@@ -44,6 +44,12 @@ public class LampadaTresEstados {
     public void substituirDurabilidade(int novaDurabilidade) {
         durability = novaDurabilidade;
     }
+
+    public int luminosidade( ){
+        if( EstadoLampada.ACESA != null ){
+            return 100;
+        } return 0;
+    }
 }
 
 enum EstadoLampada {

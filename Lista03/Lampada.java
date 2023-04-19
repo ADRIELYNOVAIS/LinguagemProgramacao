@@ -37,4 +37,10 @@ public class Lampada {
         this.durability = durability;
     }
 
+    public boolean estaLigada(){
+        if( isOn() ){
+            return true;
+        } return false;
+    }
+
 }
