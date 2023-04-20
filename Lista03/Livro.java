@@ -4,7 +4,7 @@ public class Livro {
 
     public void inicializar( String autor, String titulo, int ISBN, int edicao, int anoPublicacao ){
         
-        if( validatonLivro( edicao, anoPublicacao) ){
+        if( validationLivro( edicao, anoPublicacao) ){
             this.autor = autor;
             this.titulo = titulo;
             this.ISBN = ISBN;
