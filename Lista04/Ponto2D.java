@@ -22,13 +22,13 @@ public class Ponto2D {
         this.y = y;
     }
 
-    private boolean isEixoX(){
+    public boolean isEixoX(){
         if(getY() ==0 && getX() !=0){
             return true;
         }return false;
     }
 
-    private boolean isEixoY(){
+    public boolean isEixoY(){
         if(getY() !=0 && getX() ==0){
             return true;
         }return false;
@@ -60,5 +60,9 @@ public class Ponto2D {
         dist = Math.sqrt((x*x) + (y*y) );
         return dist;
         
+    }
+
+    public void imprimirPonto(){
+        System.out.println("");
     }
 }
