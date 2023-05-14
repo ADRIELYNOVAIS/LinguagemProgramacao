@@ -67,5 +67,26 @@ public class Time {
         }
     }
 
+    private String SecondsToTime(){
+        //pega os segundos que representa o dia e transforma em hora/minutos e segundo para representar uma hora
+        String result = "";
+        int hora;
+        int min;
+        int sec;
+
+        hora = valor/3600;
+        min = (valor % 3600)/60;
+        sec = (valor % 3600)%60;
+
+        result = Integer.toString(hora) + ":"
+               + Integer.toString(min) + ":"
+               + Integer.toString(sec);
+
+        return result;
+    }
+
+    public void prnTime(){
+        System.out.println(SecondsToTime());
+    }
 
 }
