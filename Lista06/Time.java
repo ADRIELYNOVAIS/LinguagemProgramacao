@@ -58,7 +58,7 @@ public class Time {
 
     public void addSegonds(int segs) {
 
-        if (segs > 0) {
+        if (segs > 0 && segs < 60 ) {
             //validar segundo
             int totalSegundos = hora * 3600 + minuto * 60 + segs ;
     
@@ -76,9 +76,9 @@ public class Time {
         }
     }
 
-    public void addSegonds(int min ,int segs) {
+    public void addSegonds(int segs, int min) {
 
-        if (segs > 0) {
+        if ((segs > 0 && segs < 60 ) && (min > 0 && min < 60 )) {
             //validar segundo
             int totalSegundos = hora * 3600 + min * 60 + segs ;
     
@@ -98,7 +98,7 @@ public class Time {
 
     public void addSegonds(int hrs, int min ,int segs) {
 
-        if (segs > 0) {
+        if (validateTime( hrs, min, segs)) {
             //validar segundo
             int totalSegundos = hrs * 3600 + min * 60 + segs ;
     
