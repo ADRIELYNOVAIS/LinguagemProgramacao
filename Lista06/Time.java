@@ -11,7 +11,7 @@ public class Time {
     }
 
     public Time( int hora ){
-        if( validateTime( hora, minuto,  segundo )){
+        if( validateHora( hora )){
 
             this.hora = hora;
             this.minuto = 0;
@@ -25,16 +25,16 @@ public class Time {
     }
 
     public Time( int hora, int minuto ){
-        if( validateTime( hora, minuto,  segundo )){
+        if( validateHora( hora ) && validateMinuto(minuto)){
 
             this.hora = hora;
             this.minuto = minuto;
-            this.segundo = 0;
+            segundo = 0;
 
         } else{
             this.hora = 0 ;
             this.minuto = 0;
-            this.segundo = 0;
+            segundo = 0;
         }
     }
 
@@ -72,18 +72,36 @@ public class Time {
     private boolean validateTime( int hora, int minuto, int segundo ){
         // Validar os valores passados
 
-        if ( hora >= 0 && hora < 24) {
-            if ( minuto >= 0 && minuto < 60) {
-                if ( segundo >= 0 && segundo < 60) {
+        if ( validateHora(hora)) {
+            if (validateMinuto(minuto)) {
+                if(validateSegundo(segundo)){
                     return true;
                 }
             }
         } return false;
     }
 
+    private boolean validateSegundo( int segundo ){
+        if ( segundo >= 0 && segundo < 60) {
+            return true;
+        }return false;
+    }
+
+    private boolean validateMinuto( int minuto ){
+        if( minuto >= 0 && minuto < 60){
+            return true;
+        } return false;
+    }
+
+    private boolean validateHora( int hora ){
+        if ( hora >= 0 && hora < 24) {
+            return true;
+        } return false;
+    }
+
     public void addSegonds(int segs) {
 
-        if (segs > 0 && segs < 60 ) {
+        if (validateSegundo(segs) ) {
             //validar segundo
             int totalSegundos = hora * 3600 + minuto * 60 + segs ;
     
@@ -103,7 +121,7 @@ public class Time {
 
     public void addSegonds(int segs, int min) {
 
-        if ((segs > 0 && segs < 60 ) && (min > 0 && min < 60 )) {
+        if (validateSegundo(segs) && validateMinuto(min)) {
             //validar segundo
             int totalSegundos = hora * 3600 + min * 60 + segs ;
     
