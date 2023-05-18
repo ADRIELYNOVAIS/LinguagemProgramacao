@@ -37,5 +37,9 @@ public class Ponto2D {
         dist = Math.sqrt(dx * dx + dy * dy);
         return dist;
     }
+
+    public void imprimirPonto(){
+        System.out.println("Ponto: (" + x + "," + y+")");
+    }
     
 }

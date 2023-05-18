@@ -61,4 +61,9 @@ public class Circulo {
             return true;
         } return false;
     }
+
+    public void imprimirCirculo(){
+        System.out.printf("X: %d, Y: %d, Raio: %d%n", x, y, r);
+    }
+    
 }

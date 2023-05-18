@@ -7,7 +7,22 @@ public class RoboSimples {
     private char direcaoAtual;
     private String diagonal;
 
-    RoboSimples(String nome, int px, int py, char d, String di ){
+    RoboSimples(String nome, int px, int py, char d ){
+       
+        if( validaName(nome) && validaDirecao( d ) ){
+            nomeDoRobo = nome;
+            posicaoXAtual = px;
+            posicaoYAtual = py;
+            direcaoAtual = d;
+        } else {
+            nomeDoRobo = "";
+            posicaoXAtual = 0;
+            posicaoYAtual = 0;
+            direcaoAtual = 'N';
+        }
+    }
+
+    /*RoboSimples(String nome, int px, int py, char d, String di ){
        
         if( validaName(nome) && validaDirecao( d ) && validaDiagonal( di ) ){
             nomeDoRobo = nome;
@@ -20,7 +35,7 @@ public class RoboSimples {
             posicaoYAtual = 0;
             direcaoAtual = 'N';
         }
-    }
+    } */
 
     RoboSimples( int x, int y ){
         posicaoXAtual = x;
@@ -82,7 +97,14 @@ public class RoboSimples {
     }
     //precisa guarda a posicao atual do robo pra saber se ele vai colidir com outro
 
-
+    public void imprimirRobo() {
+        System.out.printf("Nome do robo: %s%n", nomeDoRobo);
+        System.out.printf("Posicao x: %d%n", posicaoXAtual);
+        System.out.printf("Posicao y: %d%n", posicaoYAtual);
+        System.out.printf("Direcao: %c%n", direcaoAtual);
+        //System.out.printf("Diagonal: %s%n", diagonal);
+    }
+    
     
     
 }

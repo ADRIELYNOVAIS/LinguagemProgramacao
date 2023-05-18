@@ -11,22 +11,47 @@ public class Time {
     }
 
     public Time( int hora ){
-        this.hora = hora;
-        this.minuto = 0;
-        this.segundo =0;
+        if( validateTime( hora, minuto,  segundo )){
+
+            this.hora = hora;
+            this.minuto = 0;
+            this.segundo = 0;
+
+        } else{
+            this.hora = 0 ;
+            this.minuto = 0;
+            this.segundo = 0;
+        }
     }
 
     public Time( int hora, int minuto ){
-        this.hora = hora;
-        this.minuto = minuto;
-        this.segundo = 0;
+        if( validateTime( hora, minuto,  segundo )){
+
+            this.hora = hora;
+            this.minuto = minuto;
+            this.segundo = 0;
+
+        } else{
+            this.hora = 0 ;
+            this.minuto = 0;
+            this.segundo = 0;
+        }
     }
 
 
     public Time( int hora, int minuto, int segundo ){
-        this.hora = hora;
-        this.minuto = minuto;
-        this.segundo = segundo;
+
+        if( validateTime( hora, minuto,  segundo )){
+
+            this.hora = hora;
+            this.minuto = minuto;
+            this.segundo = segundo;
+
+        } else{
+            this.hora = 0 ;
+            this.minuto = 0;
+            this.segundo = 0;
+        }
     }
 
     public Time( Time objeto ){
@@ -53,7 +78,7 @@ public class Time {
                     return true;
                 }
             }
-        } 
+        } return false;
     }
 
     public void addSegonds(int segs) {
