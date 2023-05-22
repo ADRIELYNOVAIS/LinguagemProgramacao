@@ -12,25 +12,26 @@ public class Ponto2D {
         y =0;
     }
 
+    //criar um metodo para incializar
+
     public double distance( Ponto2D ponto ){
         
         double dist = 0;
-        float x = ponto.x - this.x;
-        float y = ponto.y - this.y;
-        dist = Math.sqrt((x * x) + (y * y));
+        float dx = ponto.x - this.x;
+        float dy = ponto.y - this.y;
+        dist = distance( dx, dy );
         return dist;
     }
 
     public double distance(){
         double dist = 0;
-        float x = this.x - 0;
-        float y = this.y - 0;
-        dist = Math.sqrt((x * x) + (y * y));
+        float dx = this.x - 0;
+        float dy = this.y - 0;
+        dist = distance( dx, dy );
         return dist;
     }
 
-    public double distance( float x, float y ) {
-        
+    public double distance( float x, float y ) { 
         double dist = 0;
         float dx = x - this.x;
         float dy = y - this.y;
