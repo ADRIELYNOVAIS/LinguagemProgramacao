@@ -10,12 +10,10 @@ public class Contato {
         this.telefone = telefone;
         totalContatos++;
         }else{
-            this.nome = "Nome nao informado";
+            this.nome = "Nome nao informado"; // retornar um exception
         }
         
     }
-
-    // colocar as validações
 
     Contato( String nome, String telefone){
         if(validateName(nome)){
