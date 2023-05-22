@@ -2,8 +2,7 @@
 
 public class TesteConversao {
     public static void main( String [] args ){
-
-        ConversaoPeso cp = new ConversaoPeso();
+        //não precisa criar uma instancia da classe
         System.out.println(ConversaoPeso.gramasParaKg(5));
     }
 }
