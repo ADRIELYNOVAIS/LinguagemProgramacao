@@ -3,44 +3,30 @@ package Lista06;
 public class Ponto2D {
     private float x, y;
 
-    public Ponto2D( float x, float y ) {
+    public Ponto2D(float x, float y) {
         this.x = x;
         this.y = y;
     }
-    public Ponto2D(){
-        x =0;
-        y =0;
+
+    public Ponto2D() {
+        // refencia o contrutor mais específico 
+        this(0, 0);
     }
 
-    //criar um metodo para incializar
+    public double distance(Ponto2D ponto) {
+        return distance(ponto.x, ponto.y);
+    }
 
-    public double distance( Ponto2D ponto ){
-        
-        double dist = 0;
-        float dx = ponto.x - this.x;
-        float dy = ponto.y - this.y;
-        dist = distance( dx, dy );
+    public double distance() {
+        return distance(0, 0);
+    }
+
+    public double distance(float x, float y) {
+        double dist = Math.sqrt(Math.pow(x - this.x, 2) + Math.pow(y - this.y, 2));
         return dist;
     }
 
-    public double distance(){
-        double dist = 0;
-        float dx = this.x - 0;
-        float dy = this.y - 0;
-        dist = distance( dx, dy );
-        return dist;
+    public void imprimirPonto() {
+        System.out.println("Ponto: (" + x + "," + y + ")");
     }
-
-    public double distance( float x, float y ) { 
-        double dist = 0;
-        float dx = x - this.x;
-        float dy = y - this.y;
-        dist = Math.sqrt(dx * dx + dy * dy);
-        return dist;
-    }
-
-    public void imprimirPonto(){
-        System.out.println("Ponto: (" + x + "," + y+")");
-    }
-    
 }
