@@ -10,6 +10,10 @@ public class CRUDLivro extends Livro implements InterfacesLivro {
         super(codISBN, titulo, autor, numeroPaginas);
     }
 
+    public CRUDLivro() {
+        this(0, "", "", 0);
+    }
+
     public Livro iniLivro() {
 
         Scanner sc = new Scanner(System.in);
@@ -29,8 +33,6 @@ public class CRUDLivro extends Livro implements InterfacesLivro {
         System.out.println("Informe o numero de paginas:");
         numeroPaginas = sc.nextInt();
 
-        sc.close();
-
         Livro Livro = new Livro(codISBN, titulo, autor, numeroPaginas);
 
         return Livro;
@@ -44,7 +46,12 @@ public class CRUDLivro extends Livro implements InterfacesLivro {
 
     }
 
-    public Livro readLivro(int codISBN) {
+    public Livro readLivro() {
+        int codISBN;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Informe o ISBN");
+        codISBN = sc.nextInt();
+
         for (Livro livro : LivroVetor) {
             if (livro.getCodISBN() == codISBN) {
                 return livro;
@@ -53,16 +60,32 @@ public class CRUDLivro extends Livro implements InterfacesLivro {
         return null;
     }
 
-    public void upLivro(int codISBN, String titulo, String autor, int numeroPaginas) {
-        Livro livro = readLivro(codISBN);
+    public void upLivro() {
+        Scanner sc = new Scanner(System.in);
+
+        int codISBN, numeroPaginas;
+        String titulo, autor;
+
+        Livro livro = readLivro();
+
+        System.out.println("Informe o titulo: ");
+        titulo = sc.nextLine();
+
+        System.out.println("Informe o nome do autor:");
+        autor = sc.nextLine();
+
+        System.out.println("Informe o numero de paginas:");
+        numeroPaginas = sc.nextInt();
+
         livro.setTitulo(titulo);
         livro.setAutor(autor);
         livro.setNumeroPaginas(numeroPaginas);
 
     }
 
-    public void deleteLivro(int codISBN) {
-        Livro livro = readLivro(codISBN);
+    public void deleteLivro() {
+
+        Livro livro = readLivro();
 
         if (livro != null) {
             LivroVetor.remove(livro);
@@ -76,5 +99,5 @@ public class CRUDLivro extends Livro implements InterfacesLivro {
             System.out.println(livro.toString());
         }
     }
-    
+
 }

@@ -23,13 +23,13 @@ public class Menu {
         System.out.println("6- Voltar ao Menu inicial\n");
 
         int opcaoCRUD = scanner.nextInt();
-        scanner.nextLine(); 
+        scanner.nextLine();
 
         if (opcaoCRUD == 6) {
-            return 0; 
+            return 0;
         } else if (opcaoCRUD < 1 || opcaoCRUD > 5) {
             System.out.println("Opção inválida");
-            return 5; 
+            return 5;
         } else {
             return opcaoCRUD;
         }
@@ -50,7 +50,7 @@ public class Menu {
     }
 
     public static void main(String[] args) throws InterruptedException, IOException {
-       
+
         int opcao;
 
         do {
@@ -61,7 +61,7 @@ public class Menu {
                 case 1:
 
                     System.out.println("ALUNO");
-                    CRUDAluno alunoCRUD = new CRUDAluno("", "", "", "", "");
+                    CRUDAluno alunoCRUD = new CRUDAluno();
                     int opcaoCRUD;
 
                     do {
@@ -75,8 +75,7 @@ public class Menu {
                                 break;
                             case 2:
 
-                                String matricula = "202121121";
-                                Aluno aluno = alunoCRUD.readAluno(matricula);
+                                Aluno aluno = alunoCRUD.readAluno();
                                 if (aluno != null) {
                                     System.out.println("Aluno encontrado: " + aluno.toString());
                                 } else {
@@ -85,12 +84,11 @@ public class Menu {
                                 break;
                             case 3:
 
-                                alunoCRUD.upAluno("202121121", "Novo Nome", "novoemail@example.com",
-                                        "12345678901", "987654321");
+                                alunoCRUD.upAluno();
                                 break;
                             case 4:
 
-                                alunoCRUD.deleteAluno("202121121");
+                                alunoCRUD.deleteAluno();
                                 break;
                             case 5:
 
@@ -111,7 +109,7 @@ public class Menu {
                 case 2:
 
                     System.out.println("LIVRO");
-                    CRUDLivro livroCRUD = new CRUDLivro(0, "", "", 0);
+                    CRUDLivro livroCRUD = new CRUDLivro();
                     int op;
 
                     do {
@@ -126,8 +124,7 @@ public class Menu {
 
                             case 2:
 
-                                int codISBN = 12345;
-                                Livro livro = livroCRUD.readLivro(codISBN);
+                                Livro livro = livroCRUD.readLivro();
                                 if (livro != null) {
                                     System.out.println("Livro encontrado: " + livro.toString());
                                 } else {
@@ -137,12 +134,12 @@ public class Menu {
 
                             case 3:
 
-                                livroCRUD.upLivro(123, "o futuro da humanidade", "augusto cury", 300);
+                                livroCRUD.upLivro();
                                 break;
 
                             case 4:
 
-                                livroCRUD.deleteLivro(123);
+                                livroCRUD.deleteLivro();
                                 break;
 
                             case 5:
@@ -187,7 +184,10 @@ public class Menu {
 
                             case 3:
 
-                                //GerenciamentoBiblioteca.devolucao(12);
+                                // GerenciamentoBiblioteca.devolucao(12);
+                                break;
+
+                            case 0:
                                 break;
 
                             default:
@@ -204,6 +204,5 @@ public class Menu {
             }
         } while (opcao != 0);
 
-        scanner.close();
     }
 }

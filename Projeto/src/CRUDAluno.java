@@ -10,6 +10,10 @@ public class CRUDAluno extends Aluno implements InterfacesAluno {
         super(nome, email, cpf, telefone, numeroMatricula);
     }
 
+    public CRUDAluno() {
+        this("", "", "", "", "");
+    }
+
     public Aluno iniAluno() {
         Scanner sc = new Scanner(System.in);
 
@@ -30,8 +34,6 @@ public class CRUDAluno extends Aluno implements InterfacesAluno {
         System.out.println("Informe o número de Matrícula: ");
         numeroMatricula = sc.nextLine();
 
-        sc.close();
-
         Aluno aluno = new Aluno(nome, email, cpf, telefone, numeroMatricula);
 
         return aluno;
@@ -45,8 +47,12 @@ public class CRUDAluno extends Aluno implements InterfacesAluno {
 
     }
 
-    public Aluno readAluno(String numeroMatricula) {
-        
+    public Aluno readAluno() {
+        Scanner sc = new Scanner(System.in);
+        String numeroMatricula;
+        System.out.println("Informe o número de Matrícula: ");
+        numeroMatricula = sc.nextLine();
+
         for (Aluno aluno : alunoVetor) {
             if (aluno.getMatricula().equals(numeroMatricula)) {
                 return aluno;
@@ -55,20 +61,27 @@ public class CRUDAluno extends Aluno implements InterfacesAluno {
         return null;
     }
 
-    public void upAluno(String nome, String email, String cpf, String telefone, String numeroMatricula) {
-       
-        Aluno aluno = readAluno(numeroMatricula);
+    public void upAluno() {
 
-        aluno.setNome(nome);
+        Scanner sc = new Scanner(System.in);
+        String email, telefone;
+
+        Aluno aluno = readAluno();
+
+        System.out.println("Informe o novo email: ");
+        email = sc.nextLine();
+
+        System.out.println("Informe o telefone: ");
+        telefone = sc.nextLine();
+
         aluno.setEmail(email);
-        aluno.setCpf(cpf);
         aluno.setTelefone(telefone);
 
     }
 
-    public void deleteAluno(String matricula) {
+    public void deleteAluno() {
 
-        Aluno aluno = readAluno(matricula);
+        Aluno aluno = readAluno();
 
         if (aluno != null) {
             alunoVetor.remove(aluno);
@@ -80,7 +93,12 @@ public class CRUDAluno extends Aluno implements InterfacesAluno {
     public void printAlunos() {
 
         for (Aluno aluno : alunoVetor) {
-            System.out.println(aluno.toString());
+            if (aluno != null) {
+                System.out.println(aluno.toString());
+            } else {
+                throw new IllegalArgumentException("Aluno não encontrado!");
+            }
         }
     }
+
 }

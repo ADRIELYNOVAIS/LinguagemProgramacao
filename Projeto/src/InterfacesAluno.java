@@ -4,11 +4,11 @@ public interface InterfacesAluno {
 
     abstract void createAluno();
 
-    abstract Aluno readAluno(String numeroMatricula);
+    abstract Aluno readAluno();
 
-    abstract void upAluno(String nome, String email, String cpf, String telefone, String numeroMatricula);
+    abstract void upAluno();
 
-    abstract void deleteAluno(String matricula);
+    abstract void deleteAluno();
 
     abstract void printAlunos();
 
