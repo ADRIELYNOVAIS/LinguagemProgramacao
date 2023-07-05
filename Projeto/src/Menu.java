@@ -1,16 +1,8 @@
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Menu {
 
     private static Scanner scanner = new Scanner(System.in);
-
-    public static void clear() throws InterruptedException, IOException {
-        if (System.getProperty("os.name").contains("Windows"))
-            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-        else
-            Runtime.getRuntime().exec("clear");
-    }
 
     public static int crudMenu() {
 
@@ -49,7 +41,7 @@ public class Menu {
         return opcao;
     }
 
-    public static void main(String[] args) throws InterruptedException, IOException {
+    public static void main(String[] args)  {
 
         int opcao;
 
@@ -169,22 +161,24 @@ public class Menu {
                     System.out.print("- Voltar ao menu principal\n");
 
                     opEmp = scanner.nextInt();
+                    GerenciamentoBiblioteca biblioteca = new GerenciamentoBiblioteca();
 
                     do {
 
                         switch (opEmp) {
+                           
 
                             case 1:
-                                GerenciamentoBiblioteca.emprestar();
+                                biblioteca.emprestar();
                                 break;
 
                             case 2:
-                                GerenciamentoBiblioteca.printLivrosEmp();
+                                biblioteca.printLivrosEmp();
                                 break;
 
                             case 3:
 
-                                // GerenciamentoBiblioteca.devolucao(12);
+                                biblioteca.devolucao();
                                 break;
 
                             case 0:

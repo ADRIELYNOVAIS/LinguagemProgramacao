@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class GerenciamentoBiblioteca {
     
-    private static Set<GerenciamentoBiblioteca> gerenciador = new HashSet<>();
+    private  Set<GerenciamentoBiblioteca> gerenciador = new HashSet<>();
     private Data emprestimo;
     private Aluno aluno;
     private Livro livro;
@@ -15,7 +15,11 @@ public class GerenciamentoBiblioteca {
         this.livro = livro;
     }
 
-    public static Aluno iniAluno() {
+    public GerenciamentoBiblioteca(){
+        
+    }
+
+    public Aluno iniAluno() {
         Scanner sc = new Scanner(System.in);
         String nome, numeroMatricula;
 
@@ -29,7 +33,7 @@ public class GerenciamentoBiblioteca {
         return aluno;
     }
 
-    public static Livro iniLivro() {
+    public  Livro iniLivro() {
         Scanner sc = new Scanner(System.in);
         int codISBN;
         String titulo;
@@ -44,7 +48,7 @@ public class GerenciamentoBiblioteca {
         return livro;
     }
 
-    public static Data iniData() {
+    public Data iniData() {
         Scanner sc = new Scanner(System.in);
         int dia, mes, ano;
 
@@ -57,16 +61,16 @@ public class GerenciamentoBiblioteca {
         return data;
     }
 
-    public static GerenciamentoBiblioteca criarEmprestimo() {
+    public  GerenciamentoBiblioteca criarEmprestimo() {
         GerenciamentoBiblioteca emp = new GerenciamentoBiblioteca(iniData(), iniAluno(), iniLivro());
         return emp;
     }
 
-    public static void emprestar() {
+    public void emprestar() {
         gerenciador.add(criarEmprestimo());
     }
 
-    public static void printLivrosEmp() {
+    public  void printLivrosEmp() {
         for (GerenciamentoBiblioteca geren : gerenciador) {
             System.out.println(geren.toString());
         }
@@ -81,7 +85,11 @@ public class GerenciamentoBiblioteca {
         return null;
     }
 
-    public void devolucao(int codISBN) {
+    public void devolucao() {
+        int codISBN;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Informe o código do livro: ");
+        codISBN = sc.nextInt();
         GerenciamentoBiblioteca emp = localizarEmprestimo(codISBN);
         if (emp != null) {
             gerenciador.remove(emp);
