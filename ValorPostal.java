@@ -12,11 +12,11 @@ public class Main {
             if (n % 4 == 0) {
                 a = n / 4;
                 b = 0;
-                System.out.printf("n = 4 * %d e 5 * %d%n", a, b);
+                System.out.printf("n = 4 * "+ a +" e 5 * " + b);
             } else if (n % 5 == 0) {
                 a = 0;
                 b = n / 5;
-                System.out.printf("n = 4 * %d e 5 * %d%n", a, b);
+                System.out.printf("n = 4 * "+ a +" e 5 * " + b);
             } else {
                 int i = 1;
                 while ((n / 4) - i >= 0) {
@@ -24,7 +24,7 @@ public class Main {
                     b = i;
                     int j = 4 * a + 5 * b;
                     if (n == j) {
-                        System.out.printf("n = 4 * %d e 5 * %d%n", a, b);
+                        System.out.printf("n = 4 * "+ a +" e 5 * " + b);
                     }
                     i++;
                 }
